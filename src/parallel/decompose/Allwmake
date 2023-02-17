@@ -3,6 +3,7 @@ cd "${0%/*}" || exit                                # Run from this directory
 . ${WM_PROJECT_DIR:?}/wmake/scripts/AllwmakeParseArguments
 . ${WM_PROJECT_DIR:?}/wmake/scripts/have_kahip
 . ${WM_PROJECT_DIR:?}/wmake/scripts/have_metis
+. ${WM_PROJECT_DIR:?}/wmake/scripts/have_parmetis
 . ${WM_PROJECT_DIR:?}/wmake/scripts/have_scotch
 
 #------------------------------------------------------------------------------
@@ -22,6 +23,11 @@ fi
 if have_metis
 then
     wmake $targetType metisDecomp
+fi
+
+if have_parmetis
+then
+    wmake $targetType parmetisDecomp
 fi
 
 if have_scotch
